@@ -1,5 +1,5 @@
 # Transformation, Normalization and Batch Effect Removal
-
+## Introduction 
 In bulk RNA-seq analysis, normalization and batch effect removal are two necessary procedures to scale the read counts and reduce the technical errors. Many differential expression analysis tools require raw count matrix as input and embed the normalization and batch effect removal procedures in the analysis pipeline, but researchers need to perform these two procedures independently when they build up their own bulk RNA profile analysis models. This protocol includes detailed codes and explanations of normalization and batch effect removal, which can help users understand and perform procedures more conveniently. We use the easily obtainable public Arabidopsis thaliana bulk RNA-seq dataset in the case study and researchers interested in this topic can use this protocol to learn and apply. 
 
 **If users are interested in differential expression analysis, most of the DEG pipelines are requiring raw RNA counts matrix as input. This Chapter is more suitable for the users intended to developing their own pipeline or models which need to normalize the data and remove batch effects from raw counts**
@@ -47,7 +47,7 @@ Under R or RStudio environment (R Version > 4.1.1), set working environment to `
 setwd("/path/to/Normalization-and-Batch-Effect-Removal/"")
 ```
 
-then source the scripts. 
+then source the scripts (users can use the `main.R` script in `workflow` folder). 
 
 #### Step 1: Load the data and packages
 
@@ -55,15 +55,13 @@ then source the scripts.
 source("workflow/Step_1_Load_Data_and_Packages.R")
 ```
 
-#### Step 2: Batch effect removal
+#### Step 2: Normalize the raw count matrix based on different methods
 
 ```
-sh workflow/2_aggregate_results.sh
+source("workflow/Step_2_Different_Normalization_Methods.R")
 ```
 
-#### Step 3: View Result
-
-
+#### Step 3: Remove batch effects based on normalized data (TMM normaliztion)
 
 ```
 
@@ -71,7 +69,7 @@ sh workflow/2_aggregate_results.sh
 
 ## Expected results
 
-![](graphs/figure1.png)
+![Violin_Boxplot_of_Normalized_Expression](graphs/Violin_Boxplot_of_Normalized_Expression.png)
 
 ## License
 It is a free and open source software, licensed under [MIT](https://github.com/github/choosealicense.com/blob/gh-pages/LICENSE.md).

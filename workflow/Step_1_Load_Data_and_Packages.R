@@ -28,4 +28,4 @@ head(raw_counts_matrix)
 # Use the pacman package to load the packages. Pacman can automatically install and load packages. 
 
 library("pacman")
-p_load(edgeR, limma, sva, ggplot2, stringr, dplyr, viridis, hrbrthemes, latex2exp, TxDb.Athaliana.BioMart.plantsmart28, ggrepel)
+p_load(edgeR, limma, sva, ggplot2, stringr, dplyr, viridis, hrbrthemes, latex2exp, TxDb.Athaliana.BioMart.plantsmart28, ggrepel, reshape2)
