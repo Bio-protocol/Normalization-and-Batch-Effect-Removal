@@ -1,5 +1,3 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-
 # Transformation, Normalization and Batch Effect Removal
 
 In bulk RNA-seq analysis, normalization and batch effect removal are two necessary procedures to scale the read counts and reduce the technical errors. Many differential expression analysis tools require raw count matrix as input and embed the normalization and batch effect removal procedures in the analysis pipeline, but researchers need to perform these two procedures independently when they build up their own bulk RNA profile analysis models. This protocol includes detailed codes and explanations of normalization and batch effect removal, which can help users understand and perform procedures more conveniently. We use the easily obtainable public Arabidopsis thaliana bulk RNA-seq dataset in the case study and researchers interested in this topic can use this protocol to learn and apply. 
@@ -17,18 +15,24 @@ To guide eBook authors having a better sense of the workflow layout, here we bri
 
 Based on the raw RNA count dataset, we perform the normalization at first to remove the library size difference between arrays then apply batch effect removal procedure to reduce the batch effect. 
 
-![Normalization and batch effect removal workflow](graphs/Workflow.pdf)
+![Normalization and batch effect removal workflow](graphs/Workflow.png)
 
 ## Installation
 
 - __Running environment__: 
-    - The workflow was constructed based on the __Linux system__ running the Oracle v1.6 to 1.8 java runtime environment (JREs).
+    R version 4.1.1 (2021-08-10)
 
-- __Required software and versions__: 
-    - [FastQC v0.11.9](http://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc)
-    - [multiqc](https://github.com/ewels/MultiQC)
-    - [R 3.6.3](https://cran.r-project.org/) for results ploting
-        - [RStudio 1.4](https://rstudio.com/), [ggplot2 3.3.3](https://cran.r-project.org/web/packages/ggplot2/index.html), [tidyr 1.1.2](https://github.com/tidyverse/tidyr)
+- __Required R Packages__: 
+  - __Dataset__:
+    [TxDb.Athaliana.BioMart.plantsmart28 (3.2.2)](https://bioconductor.org/packages/release/data/annotation/html/TxDb.Athaliana.BioMart.plantsmart28.html)
+   - __Normalization__:
+      [edgeR (3.34.0)](https://bioconductor.org/packages/release/bioc/html/edgeR.html), [limma (3.48.0)](https://bioconductor.org/packages/release/bioc/html/limma.html)
+    - __Batch Effect Removal__:
+      [sva (3.40.0)](https://bioconductor.org/packages/release/bioc/html/sva.html)
+
+  - __Data Manipulation & Visualization__:
+     - [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html), [stringr](https://cran.r-project.org/web/packages/stringr/index.html), [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html), [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html), [viridis](https://cran.r-project.org/web/packages/viridis/index.html), [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html), [hrbrthemes](https://cran.r-project.org/web/packages/hrbrthemes/index.html), [latex2exp](https://cran.r-project.org/web/packages/latex2exp/index.html)
+       
 
 
 ## Input Data
