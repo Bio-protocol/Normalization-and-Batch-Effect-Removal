@@ -1,28 +1,23 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-# Data, Code and Workflows Guideline
+# Transformation, Normalization and Batch Effect Removal
+
+In bulk RNA-seq analysis, normalization and batch effect removal are two necessary procedures to scale the read counts and reduce the technical errors. Many differential expression analysis tools require raw count matrix as input and embed the normalization and batch effect removal procedures in the analysis pipeline, but researchers need to perform these two procedures independently when they build up their own bulk RNA profile analysis models. This protocol includes detailed codes and explanations of normalization and batch effect removal, which can help users understand and perform procedures more conveniently. We use the easily obtainable public Arabidopsis thaliana bulk RNA-seq dataset in the case study and researchers interested in this topic can use this protocol to learn and apply. 
 
 To guide eBook authors having a better sense of the workflow layout, here we briefly introduce the specific purposes of the dir system. 
 
-
-1. __cache__: Here, it stores intermediate datasets or results that are generated during the preprocessing steps.
+1. __cache__: Here, it stores the intermediate results. 
 2. __graphs__: The graphs/figures produced during the analysis.
-3. __input__: Here, we store the raw input data. Data size > 100M is not allowed. We recommend using small sample data for the illustration purpose of the workflow. If you have files > 100M, please contact the chapter editor to find a solution. 
+3. __input__: Here, we provide the example input dataset. 
 4. __lib__: The source code, functions, or algorithms used within the workflow.
 5. __output__: The final output results of the workflow.
-6. __workflow__: Step by step pipeline. It may contain some sub-directories. 
-    - It is suggested to use __a numbering system__ and __keywords__ to indicate the order and the main purpose of the scripts, i.e., `1_fastq_quality_checking.py`, `2_cleaned_reads_alignment.py`.
-    - To ensure reproducibility, please use the __relative path__ within the `workflow`.
-7. __README__: In the readme file, please briefly describe the purpose of the repository, the installation, and the input data format. 
-    - We recommend using a diagram to describe the workflow briefly.
-    - Provide the installation details.
-    - Show a small proportion of the input data unless the data file is in a well-known standard format, i.e., the `head` or `tail` of the input data.
+6. __workflow__: Step by step pipeline for normalization and batch effect removal.
 
-## Overview of an example workflow: Fastq data quality checking
+## Overview of an example workflow: Normalization and batch effect removal 
 
-This is an example workflow to check the quality of the paired-end fastq files using `FastQC` software.
+Based on the raw RNA count dataset, we perform the normalization at first to remove the library size difference between arrays then apply batch effect removal procedure to reduce the batch effect. 
 
-![](graphs/diagram.png)
+![Normalization and batch effect removal workflow](graphs/Workflow.pdf)
 
 ## Installation
 
