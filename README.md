@@ -68,7 +68,7 @@ source("workflow/Step_2_Different_Normalization_Methods.R")
 ```
 
 ## Expected results
-
+**Violin & Box plot of Normalized Expression**
 ![Violin_Boxplot_of_Normalized_Expression](graphs/Violin_Boxplot_of_Normalized_Expression.png)
 
 ## License
