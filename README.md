@@ -39,11 +39,18 @@ To demonstrate different normalization methods and batch effect removal methods,
 
 
 ## Major steps
-
-#### Step 1: Normalization
+Under R or RStudio environment (R Version > 4.1.1), set working environment to `/path/to/Normalization-and-Batch-Effect-Removal/` 
 
 ```
-sh workflow/1_run_fastqc.sh
+setwd("/path/to/Normalization-and-Batch-Effect-Removal/"")
+```
+
+then source the scripts. 
+
+#### Step 1: Load the data and packages
+
+```
+source("workflow/Step_1_Load_Data_and_Packages.R")
 ```
 
 #### Step 2: Batch effect removal
@@ -65,4 +72,4 @@ sh workflow/2_aggregate_results.sh
 ![](graphs/figure1.png)
 
 ## License
-It is a free and open source software, licensed under []() (choose a license from the suggested list:  [GPLv3](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/gpl-3.0.txt), [MIT](https://github.com/github/choosealicense.com/blob/gh-pages/LICENSE.md), or [CC BY 4.0](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/cc-by-4.0.txt)).
+It is a free and open source software, licensed under [MIT](https://github.com/github/choosealicense.com/blob/gh-pages/LICENSE.md).
