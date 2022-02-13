@@ -47,7 +47,7 @@ Under R or RStudio environment (R Version > 4.1.1), set working environment to `
 setwd("/path/to/Normalization-and-Batch-Effect-Removal/"")
 ```
 
-then source the scripts (users can use the `main.R` script in `workflow` folder). 
+then source the scripts step by step (or directly use the `workflow/main.R` script). 
 
 #### Step 1: Load the data and packages
 
@@ -61,15 +61,20 @@ source("workflow/Step_1_Load_Data_and_Packages.R")
 source("workflow/Step_2_Different_Normalization_Methods.R")
 ```
 
-#### Step 3: Remove batch effects based on normalized data (TMM normaliztion)
+#### Step 3: Remove batch effect based on normalized data
 
 ```
-
+source("workflow/Step_3_Batch_Effect_Removal.R")
 ```
+
+
 
 ## Expected results
 **Violin & Box plot of Normalized Expression**
 ![Violin_Boxplot_of_Normalized_Expression](graphs/Violin_Boxplot_of_Normalized_Expression.png)
+
+**PC1 and PC2 plot based on different batch removal methods comparing with TMM normalized CPM and raw CPM**
+![PCA](graphs/PCA_Plot_of_Batch_Effect_Removed_Results.png)
 
 ## License
 It is a free and open source software, licensed under [MIT](https://github.com/github/choosealicense.com/blob/gh-pages/LICENSE.md).
