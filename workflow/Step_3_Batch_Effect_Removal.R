@@ -27,10 +27,10 @@ head(combat_edata_non_par)
 ## 3.2	Remove batch effects with known batches based on ComBat_seq function
 ## --------------------------------------------------------------------------------------------
 
-# include group condition 
+# Include group condition 
 combat_seq_with_group <- ComBat_seq(raw_counts_matrix, batch=batch, group=group, full_mod=TRUE)
 
-# do not include group condition 
+# Do not include group condition 
 combat_seq_without_group <- ComBat_seq(raw_counts_matrix, batch=batch, group=NULL, full_mod=FALSE)
 
 # Check out the adjusted expression profiles

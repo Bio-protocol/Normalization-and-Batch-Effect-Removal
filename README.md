@@ -43,11 +43,10 @@ For the users want to download the dataset by themselves, the following R script
 url <- "http://bioinf.wehi.edu.au/edgeR/UserGuideData/arab.rds"
 
 # Specify destination where file should be saved
-destfile <- "../arab.rds"
+destfile <- "/path/to/save/arab.rds"
 
 # Apply download.file function in R
 download.file(url,destfile)
-
 ```
 
 
@@ -72,13 +71,25 @@ source("workflow/Step_1_Load_Data_and_Packages.R")
 source("workflow/Step_2_Different_Normalization_Methods.R")
 ```
 
-#### Step 3: Remove batch effect based on normalized data
+Step 2 performs 9 normalization methods on the same dataset. Normalization steps can be finished in a short time (about 3.419 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/) ) 
 
+After finishing step 2, users can get the normalized count datasets. The outputs data is stored in `cache/Normalization_Result.rds`.
+
+
+#### Step 3: Remove batch effect based on normalized data
 ```
 source("workflow/Step_3_Batch_Effect_Removal.R")
 ```
+In step 3, the non-parametric empirical Bayes frameworks method 
 
+```
+combat_edata_non_par <- ComBat(dat= TMM, batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
+```
+takes about 1-2 hours to finish. For the users only want to test the function, they can input a subset TMM normalized count matrix to save time. For example, 
 
+```
+combat_edata_non_par <- ComBat(dat= TMM[1:1000, ], batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
+```
 
 ## Expected results
 **Violin & Box plot of Normalized Expression**
@@ -88,4 +99,5 @@ source("workflow/Step_3_Batch_Effect_Removal.R")
 ![PCA](graphs/PCA_Plot_of_Batch_Effect_Removed_Results.png)
 
 ## License
-It is a free and open source software, licensed under [MIT](https://github.com/github/choosealicense.com/blob/gh-pages/LICENSE.md).
+It is a free and open source software, licensed under []() (choose a license from the suggested list:  [GPLv3](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/gpl-3.0.txt), [MIT](https://github.com/github/choosealicense.com/blob/gh-pages/LICENSE.md), or [CC BY 4.0](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/cc-by-4.0.txt)).
+

@@ -7,6 +7,9 @@
 ## Section 2: Normalization
 ##---------------------------------------------------------------------------------------------
 
+# If user want to time the script, start the clock!
+ptm <- proc.time()
+
 # Create group vector
 group <- c('mock','mock','mock','hrcc','hrcc','hrcc')
 
@@ -132,4 +135,6 @@ Normalization_Result <- list(cpm = cpm,
 
 print("Step_2 finished, all results are stored in object: Normalization_Result")
 
+# If user want to time the script, start the clock!
+time <- proc.time() - ptm
 
