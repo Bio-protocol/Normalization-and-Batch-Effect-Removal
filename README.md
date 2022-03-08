@@ -65,15 +65,15 @@ then source the scripts step by step (or directly use the `workflow/main.R` scri
 source("workflow/Step_1_Load_Data_and_Packages.R")
 ```
 
+Step 1 sets up the necessary packages and datasets. After running step 1 the R environment is ready for following steps. 
+
 #### Step 2: Normalize the raw count matrix based on different methods
 
 ```
 source("workflow/Step_2_Different_Normalization_Methods.R")
 ```
 
-Step 2 performs 9 normalization methods on the same dataset. Normalization steps can be finished in a short time (about 3.419 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/) ) 
-
-After finishing step 2, users can get the normalized count datasets. The outputs data is stored in `cache/Normalization_Result.rds`.
+Step 2 performs 9 normalization methods on the same dataset. Normalization steps can be finished in a short time (about 3.419 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). After finishing step 2, users can get the normalized count datasets. The outputs data is stored in `cache/Normalization_Result.rds`.
 
 
 #### Step 3: Remove batch effect based on normalized data
