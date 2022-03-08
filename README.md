@@ -90,7 +90,10 @@ takes about 1-2 hours to finish. For the users only want to test the function, t
 ```
 combat_data_non_par <- ComBat(dat= TMM[1:1000, ], batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
 ```
-Except the non-parametric empirical Bayes frameworks method, other methods of batch removal can be finished quickly (37.844 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). Step 3 can remove the batch effect based on the normalized datasets. Empirical Bayes frameworks and ComBat_seq methods require batch information as the input. However, when the batch information is unknown, we need to use the `sva` function to get the  vector of covariates to be adjusted for the put into the limma function `removeBatchEffect` to remove the batch effect. The normalized and batch effect results are store in `output/Batch_Effect_Removal_Result.rds`
+Except the non-parametric empirical Bayes frameworks method, other methods of batch removal can be finished quickly (37.844 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). Step 3 can remove the batch effect based on the normalized datasets. Empirical Bayes frameworks and ComBat_seq methods require batch information as the input. However, when the batch information is unknown, we need to use the `sva` function to get the  vector of covariates to be adjusted for the put into the limma function `removeBatchEffect` to remove the batch effect. 
+
+#### Final outputs
+The normalized and batch effect removed results are store in `output/Batch_Effect_Removal_Result.rds`
 
 ## Expected results
 **Violin & Box plot of Normalized Expression**
