@@ -39,15 +39,14 @@ Based on the raw RNA count dataset, we perform the normalization at first to rem
 To demonstrate different normalization methods and batch effect removal methods, we use the Arabidopsis thaliana RNA count data published by [Cumbie et al.](https://www.google.com/search?q=4.%09Cumbie%2C+J.+S.%2C+Kimbrel%2C+J.+A.%2C+Di%2C+Y.%2C+Schafer%2C+D.+W.%2C+Wilhelm%2C+L.+J.%2C+Fox%2C+S.+E.%2C+Sullivan%2C+C.+M.%2C+Curzon%2C+A.+D.%2C+Carrington%2C+J.+C.%2C+Mockler%2C+T.+C.+and+Chang%2C+J.+H.+%282011%29.+GENE-counter%3A+a+computational+pipeline+for+the+analysis+of+RNA-Seq+data+for+gene+expression+differences.+PLoS+One+6%2810%29%3A+e25279.&rlz=1C1CHBF_enUS890US890&ei=BhoIYrL1IJWgkPIP1LeMqA0&ved=0ahUKEwiykPn4gfv1AhUVEEQIHdQbA9UQ4dUDCA4&uact=5&oq=4.%09Cumbie%2C+J.+S.%2C+Kimbrel%2C+J.+A.%2C+Di%2C+Y.%2C+Schafer%2C+D.+W.%2C+Wilhelm%2C+L.+J.%2C+Fox%2C+S.+E.%2C+Sullivan%2C+C.+M.%2C+Curzon%2C+A.+D.%2C+Carrington%2C+J.+C.%2C+Mockler%2C+T.+C.+and+Chang%2C+J.+H.+%282011%29.+GENE-counter%3A+a+computational+pipeline+for+the+analysis+of+RNA-Seq+data+for+gene+expression+differences.+PLoS+One+6%2810%29%3A+e25279.&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsANKBAhBGABKBAhGGABQwQNYwQNgvAloAnABeACAAQCIAQCSAQCYAQCgAQKgAQHIAQjAAQE&sclient=gws-wiz) as an example. Users can use the data in the **input** folder. 
 For the users want to download the dataset by themselves, the following R scripts can be used. 
 ```
-##----------------------------------------------------------------------------------------------
-## (Is not necessary to download the data if users downloaded the github Repository. 
-## Example dataset is in the input folder.)
 # Specify URL where file is stored
-# url <- "http://bioinf.wehi.edu.au/edgeR/UserGuideData/arab.rds"
+url <- "http://bioinf.wehi.edu.au/edgeR/UserGuideData/arab.rds"
+
 # Specify destination where file should be saved
-# destfile <- "../arab.rds"
+destfile <- "../arab.rds"
+
 # Apply download.file function in R
-# download.file(url,destfile)
+download.file(url,destfile)
 
 ```
 
