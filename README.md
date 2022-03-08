@@ -80,16 +80,17 @@ Step 2 performs 9 normalization methods on the same dataset. Normalization steps
 ```
 source("workflow/Step_3_Batch_Effect_Removal.R")
 ```
-In step 3, the non-parametric empirical Bayes frameworks method 
+In step 3, the non-parametric empirical Bayes frameworks method.
 
 ```
-combat_edata_non_par <- ComBat(dat= TMM, batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
+combat_data_non_par <- ComBat(dat= TMM, batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
 ```
 takes about 1-2 hours to finish. For the users only want to test the function, they can input a subset TMM normalized count matrix to save time. For example, 
 
 ```
-combat_edata_non_par <- ComBat(dat= TMM[1:1000, ], batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
+combat_data_non_par <- ComBat(dat= TMM[1:1000, ], batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
 ```
+Except the non-parametric empirical Bayes frameworks method, other methods of batch removal can be finished quickly (37.844 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). Step 3 can remove the batch effect based on the normalized datasets. Empirical Bayes frameworks and ComBat_seq methods require batch information as the input. However, when the batch information is unknown, we need to use the `sva` function to get the  vector of covariates to be adjusted for the put into the limma function `removeBatchEffect` to remove the batch effect. 
 
 ## Expected results
 **Violin & Box plot of Normalized Expression**

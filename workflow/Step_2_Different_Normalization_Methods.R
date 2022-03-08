@@ -135,6 +135,6 @@ Normalization_Result <- list(cpm = cpm,
 
 print("Step_2 finished, all results are stored in object: Normalization_Result")
 
-# If user want to time the script, start the clock!
+# End the clock and calculate the script running time.
 time <- proc.time() - ptm
 

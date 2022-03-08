@@ -10,18 +10,21 @@
 ## 3.1 Remove batch effects with known batches based on ComBat function. 
 ## --------------------------------------------------------------------------------------------
 
+# If user want to time the script, start the clock!
+ptm <- proc.time()
+
 # Create batch vector
 batch <- c(1,2,3,1,2,3)
 
-# Apply parametric parametric empirical Bayes frameworks adjustment to remove the batch effect
-combat_edate_par <- ComBat(dat=TMM, batch=batch, mod=NULL, par.prior=TRUE, prior.plots=F)
+# Apply parametric empirical Bayes frameworks adjustment to remove the batch effect
+combat_data_par <- ComBat(dat=TMM, batch=batch, mod=NULL, par.prior=TRUE, prior.plots=F)
 
 # Apply non-parametric empirical Bayes frameworks adjustment to remove the batch effects
-combat_edata_non_par <- ComBat(dat= TMM, batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
+combat_data_non_par <- ComBat(dat= TMM, batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
 
 # Check out the adjusted expression profiles
-head(combat_edate_par)
-head(combat_edata_non_par)
+head(combat_data_par)
+# head(combat_edata_non_par)
 
 ## --------------------------------------------------------------------------------------------
 ## 3.2	Remove batch effects with known batches based on ComBat_seq function
@@ -53,11 +56,14 @@ cov = cbind(sva_result$sv)
 corrected_result <- removeBatchEffect(TMM, covariates = cov)
 head(round(corrected_result, digits = 3))
 
-Batch_Effect_Removal_Result <- list(combat_edate_par <- combat_edate_par,
-                                    combat_edata_non_par <- combat_edata_non_par,
+Batch_Effect_Removal_Result <- list(combat_data_par <- combat_data_par,
+                                    combat_data_non_par <- combat_data_non_par,
                                     combat_seq_with_group <- combat_seq_with_group,
                                     combat_seq_without_group <- combat_seq_without_group,
                                     sva_without_batch_info <- corrected_result
                                       )
 
 print("Step_3 finished, all results are stored in object: Batch_Effect_Removal_Result")
+
+# End the clock and calculate the script running time.
+time <- proc.time() - ptm
