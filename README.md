@@ -110,10 +110,12 @@ source("workflow/Plot_Normalization_Violin_Plot.R")
 
 source("workflow/Plot_PCA_Clustering_Distribution_After_Batch_Effect_Removal.R")
 ```
+In order to compare the results from different normalization methods and bach effect removal methods, we draw the violin & box plot of normalized expression tp compare the distribution of gene expression after different normalizations. 
 
+For the batch effect removal, we use PCA plot to check the results after different batch effect removal methods. 
 
 ## Expected results
-**Violin & Box plot of Normalized Expression**
+**Violin & Box plot of normalized expression**
 ![Violin_Boxplot_of_Normalized_Expression](graphs/Violin_Boxplot_of_Normalized_Expression.png)
 
 The $log_2(CPM)$ based on library size normalization methods (i.e. RLE, TMM and UQ) are similar with each other and no significant difference with the raw $log_2 (CPM)$. However, the outcomes of RPKM and TPM are significant smaller than the other methods. Here we need to note RPKM is within sample normalization but RLE, TMM, UQ and TPM are cross sample normalization methods.  
