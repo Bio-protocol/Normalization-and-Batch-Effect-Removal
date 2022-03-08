@@ -104,8 +104,12 @@ Except the non-parametric empirical Bayes frameworks method, other methods of ba
 
 **The normalized and batch effect removed results are store in `output/Batch_Effect_Removal_Result.rds`**
 
-#### Results Visualization
+#### Step 4, results visualization
+```
+source("workflow/Plot_Normalization_Violin_Plot.R")
 
+source("workflow/Plot_PCA_Clustering_Distribution_After_Batch_Effect_Removal.R")
+```
 
 
 ## Expected results
