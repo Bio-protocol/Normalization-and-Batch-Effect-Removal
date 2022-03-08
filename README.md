@@ -31,9 +31,19 @@ Based on the raw RNA count dataset, we perform the normalization at first to rem
       [edgeR (3.34.0)](https://bioconductor.org/packages/release/bioc/html/edgeR.html), [limma (3.48.0)](https://bioconductor.org/packages/release/bioc/html/limma.html)
     - __Batch Effect Removal__:
       [sva (3.40.0)](https://bioconductor.org/packages/release/bioc/html/sva.html)
+      
+  - __Install & Load packages__:[pacman](https://cran.r-project.org/web/packages/pacman/index.html)
 
   - __Data Manipulation & Visualization__:
-      [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html), [stringr](https://cran.r-project.org/web/packages/stringr/index.html), [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html), [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html), [viridis](https://cran.r-project.org/web/packages/viridis/index.html), [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html), [hrbrthemes](https://cran.r-project.org/web/packages/hrbrthemes/index.html), [latex2exp](https://cran.r-project.org/web/packages/latex2exp/index.html)
+      [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html),
+      [stringr](https://cran.r-project.org/web/packages/stringr/index.html),
+      [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html),
+      [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html),
+      [viridis](https://cran.r-project.org/web/packages/viridis/index.html),
+      [ggpubr](https://cran.r-project.org/web/packages/ggpubr/index.html),
+      [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html),
+      [hrbrthemes](https://cran.r-project.org/web/packages/hrbrthemes/index.html),
+      [latex2exp](https://cran.r-project.org/web/packages/latex2exp/index.html)
        
 ## Input Data
 To demonstrate different normalization methods and batch effect removal methods, we use the Arabidopsis thaliana RNA count data published by [Cumbie et al.](https://www.google.com/search?q=4.%09Cumbie%2C+J.+S.%2C+Kimbrel%2C+J.+A.%2C+Di%2C+Y.%2C+Schafer%2C+D.+W.%2C+Wilhelm%2C+L.+J.%2C+Fox%2C+S.+E.%2C+Sullivan%2C+C.+M.%2C+Curzon%2C+A.+D.%2C+Carrington%2C+J.+C.%2C+Mockler%2C+T.+C.+and+Chang%2C+J.+H.+%282011%29.+GENE-counter%3A+a+computational+pipeline+for+the+analysis+of+RNA-Seq+data+for+gene+expression+differences.+PLoS+One+6%2810%29%3A+e25279.&rlz=1C1CHBF_enUS890US890&ei=BhoIYrL1IJWgkPIP1LeMqA0&ved=0ahUKEwiykPn4gfv1AhUVEEQIHdQbA9UQ4dUDCA4&uact=5&oq=4.%09Cumbie%2C+J.+S.%2C+Kimbrel%2C+J.+A.%2C+Di%2C+Y.%2C+Schafer%2C+D.+W.%2C+Wilhelm%2C+L.+J.%2C+Fox%2C+S.+E.%2C+Sullivan%2C+C.+M.%2C+Curzon%2C+A.+D.%2C+Carrington%2C+J.+C.%2C+Mockler%2C+T.+C.+and+Chang%2C+J.+H.+%282011%29.+GENE-counter%3A+a+computational+pipeline+for+the+analysis+of+RNA-Seq+data+for+gene+expression+differences.+PLoS+One+6%2810%29%3A+e25279.&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsANKBAhBGABKBAhGGABQwQNYwQNgvAloAnABeACAAQCIAQCSAQCYAQCgAQKgAQHIAQjAAQE&sclient=gws-wiz) as an example. Users can use the data in the **input** folder. 
@@ -92,8 +102,11 @@ combat_data_non_par <- ComBat(dat= TMM[1:1000, ], batch=batch, mod=NULL, par.pri
 ```
 Except the non-parametric empirical Bayes frameworks method, other methods of batch removal can be finished quickly (37.844 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). Step 3 can remove the batch effect based on the normalized datasets. Empirical Bayes frameworks and ComBat_seq methods require batch information as the input. However, when the batch information is unknown, we need to use the `sva` function to get the  vector of covariates to be adjusted for the put into the limma function `removeBatchEffect` to remove the batch effect. 
 
-#### Final outputs
-The normalized and batch effect removed results are store in `output/Batch_Effect_Removal_Result.rds`
+**The normalized and batch effect removed results are store in `output/Batch_Effect_Removal_Result.rds`**
+
+#### Results Visualization
+
+
 
 ## Expected results
 **Violin & Box plot of Normalized Expression**
