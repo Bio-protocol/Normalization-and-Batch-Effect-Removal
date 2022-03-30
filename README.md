@@ -4,8 +4,6 @@ In bulk RNA-seq analysis, normalization and batch effect removal are two necessa
 
 **If users are interested in differential expression analysis, most of the DEG pipelines are requiring raw RNA counts matrix as input. This Chapter is more suitable for the users intended to developing their own pipeline or models which need to normalize the data and remove batch effects from raw counts**
 
-To guide eBook authors having a better sense of the workflow layout, here we briefly introduce the specific purposes of the dir system. 
-
 1. __graphs__: The graphs/figures produced during the analysis.
 2. __input__: Here, we provide the example input dataset. 
 3. __lib__: The source code, functions, or algorithms used within the workflow.
