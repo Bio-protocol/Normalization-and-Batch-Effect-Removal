@@ -56,6 +56,8 @@ cov = cbind(sva_result$sv)
 corrected_result <- removeBatchEffect(TMM, covariates = cov)
 head(round(corrected_result, digits = 3))
 
+
+# Create a list object to store batch effect removed results
 Batch_Effect_Removal_Result <- list(combat_data_par <- combat_data_par,
                                     combat_data_non_par <- combat_data_non_par,
                                     combat_seq_with_group <- combat_seq_with_group,
@@ -67,3 +69,57 @@ print("Step_3 finished, all results are stored in object: Batch_Effect_Removal_R
 
 # End the clock and calculate the script running time.
 time <- proc.time() - ptm
+
+## --------------------------------------------------------------------------------------------
+## 3.4 Save the batch effect removed files into the output folder
+## --------------------------------------------------------------------------------------------
+
+# Save the rds file into the output folder
+
+save(Batch_Effect_Removal_Result, "output/datasets/rds_format/Batch_Effect_Removal_Result.rds")
+
+print("Batch_Effect_Removal_Result is saved in output/datasets/rds_formatBatch_Effect_Removal_Result.rds")
+
+# Also, for users' convenience, we also output the tsv files in the output folder.
+# Users can turn the if to "TRUE" to output the tsv files
+
+if(FALSE){
+  write.table(Batch_Effect_Removal_Result$combat_data_par, 
+              file = "output/datasets/tsv_format/batch_effect_removal/combat_data_par.tsv", 
+              row.names=TRUE, 
+              col.names = TRUE,
+              sep="\t",
+              quote = F)
+  
+  write.table(Batch_Effect_Removal_Result$combat_data_non_par, 
+              file = "output/datasets/tsv_format/batch_effect_removal/combat_data_non_par.tsv", 
+              row.names=TRUE, 
+              col.names = TRUE,
+              sep="\t",
+              quote = F)
+  
+  write.table(Batch_Effect_Removal_Result$combat_seq_with_group, 
+              file = "output/datasets/tsv_format/batch_effect_removal/combat_seq_with_group.tsv", 
+              row.names=TRUE, 
+              col.names = TRUE,
+              sep="\t",
+              quote = F)
+  
+  write.table(Batch_Effect_Removal_Result$combat_seq_without_group, 
+              file = "output/datasets/tsv_format/batch_effect_removal/combat_seq_without_group.tsv", 
+              row.names=TRUE, 
+              col.names = TRUE,
+              sep="\t",
+              quote = F)
+  
+  write.table(Batch_Effect_Removal_Result$sva_without_batch_info, 
+              file = "output/datasets/tsv_format/batch_effect_removal/sva_without_batch_info.tsv", 
+              row.names=TRUE, 
+              col.names = TRUE,
+              sep="\t",
+              quote = F)
+}
+
+## --------------------------------------------------------------------------------------------
+## END
+## --------------------------------------------------------------------------------------------

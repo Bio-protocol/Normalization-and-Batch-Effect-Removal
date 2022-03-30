@@ -66,3 +66,15 @@ violin_box_plots_cpm <- ggplot(normalization_boxplot_df, aes(x=Group, y=Logcpm, 
 
 violin_box_plots_cpm
 
+## Save the figure into output folder
+
+png(file = "./output/figures/Violin_Boxplot_of_Normalized_Expression.png",   # The directory you want to save the file in
+    width = 2000, # The width of the plot in inches
+    height = 1000) # The height of the plot in inches
+
+violin_box_plots_cpm
+
+dev.off()
+
+
+

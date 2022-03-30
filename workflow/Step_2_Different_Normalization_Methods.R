@@ -122,6 +122,8 @@ LOG_UQ <- cpm(DEGL_UQ, log = T, normalized.lib.sizes=TRUE)
 head(UQ)
 head(LOG_UQ)
 
+
+# Create a list object to store normalized results
 Normalization_Result <- list(cpm = cpm,
                              LOG_cpm = LOG_cpm,
                              RPKM = RPKM,
@@ -138,3 +140,91 @@ print("Step_2 finished, all results are stored in object: Normalization_Result")
 # End the clock and calculate the script running time.
 time <- proc.time() - ptm
 
+## --------------------------------------------------------------------------------------------
+## 2.8 Save the normalized files into the output folder
+## --------------------------------------------------------------------------------------------
+
+# Save the rds file into the output folder
+
+save(Normalization_Result, "output/datasets/rds_format/Normalization_Result.rds")
+
+print("Normalization_Result is saved in output/datasets/rds_format/Normalization_Result.rds")
+
+# Also, for users' convenience, we also output the tsv files in the output folder.
+# Users can turn the if to "TRUE" to output the tsv files
+
+if(FALSE){
+  write.table(Normalization_Result$cpm, 
+            file = "output/datasets/tsv_format/normalization/cpm.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$LOG_cpm, 
+            file = "output/datasets/tsv_format/normalization/LOG_cpm.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$RPKM, 
+            file = "output/datasets/tsv_format/normalization/RPKM.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$LOG_RPKM, 
+            file = "output/datasets/tsv_format/normalization/LOG_RPKM.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$TPM, 
+            file = "output/datasets/tsv_format/normalization/TPM.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$LOG_TMM, 
+            file = "output/datasets/tsv_format/normalization/LOG_TMM.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$RLE, 
+            file = "output/datasets/tsv_format/normalization/RLE.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$LOG_RLE, 
+            file = "output/datasets/tsv_format/normalization/LOG_RLE.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$UQ, 
+            file = "output/datasets/tsv_format/normalization/UQ.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+  
+  write.table(Normalization_Result$LOG_UQ, 
+            file = "output/datasets/tsv_format/normalization/LOG_UQ.tsv", 
+            row.names=TRUE, 
+            col.names = TRUE,
+            sep="\t",
+            quote = F)
+}
+
+## --------------------------------------------------------------------------------------------
+## END
+## --------------------------------------------------------------------------------------------

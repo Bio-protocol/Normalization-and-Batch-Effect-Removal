@@ -104,25 +104,23 @@ Except the non-parametric empirical Bayes frameworks method, other methods of ba
 
 **The normalized and batch effect removed results are store in `output/Batch_Effect_Removal_Result.rds`**
 
-#### Step 4, results visualization
+#### Step 4: Results visualization
 ```
 source("workflow/Plot_Normalization_Violin_Plot.R")
 
 source("workflow/Plot_PCA_Clustering_Distribution_After_Batch_Effect_Removal.R")
 ```
-In order to compare the results from different normalization methods and bach effect removal methods, we draw the violin & box plot of normalized expression tp compare the distribution of gene expression after different normalizations. 
-
-For the batch effect removal, we use PCA plot to check the results after different batch effect removal methods. 
+In order to compare the results from different normalization methods and bach effect removal methods, we draw the violin & box plot of normalized expression tp compare the distribution of gene expression after different normalizations. For the batch effect removal, we use PCA plot to check the results after different batch effect removal methods. 
 
 ## Expected results
 **Violin & Box plot of normalized expression**
-![Violin_Boxplot_of_Normalized_Expression](graphs/Violin_Boxplot_of_Normalized_Expression.png)
+![Violin_Boxplot_of_Normalized_Expression](output/figures/Violin_Boxplot_of_Normalized_Expression.png)
 
 The $log_2(CPM)$ based on library size normalization methods (i.e. RLE, TMM and UQ) are similar with each other and no significant difference with the raw $log_2 (CPM)$. However, the outcomes of RPKM and TPM are significant smaller than the other methods. Here we need to note RPKM is within sample normalization but RLE, TMM, UQ and TPM are cross sample normalization methods.  
 **Note** the input raw library size of samples directly decide the outcomes of different normalization methods. The results based on example dataset cannot represent all cases so readers should select the appropriate normalization method based on the outcomes from their own input datasets.
 
 **PC1 and PC2 plot based on different batch removal methods comparing with TMM normalized CPM and raw CPM**
-![PCA](graphs/PCA_Plot_of_Batch_Effect_Removed_Results.png)
+![PCA](output/figures/PCA_Plot_of_Batch_Effect_Removed_Results.png)
 
 PCA analysis to explore the performance of different batch effect removal methods in Figure 2. From the PCA analysis, we see the clustering of samples is not ideal that mock3 and hrcc3 are far from the other four samples, and we conject it is caused by the batch effects. C, D, E, and F in Figure 2 show the PCA clustering results based on 4 batch effect removal methods (parametric ComBat, non-parametric ComBat, ComBat_seq and SVA). In Figure 2C and Figure 2D, the PC1 percentage shows a significantly improve and two clusters sperate with each other clearly (control group on the left and hrcc group on the right). Therefore, the batch effect removal procedure can reduce the bias and we suggest researchers add it to their own research pipeline. 
 
