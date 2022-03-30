@@ -6,12 +6,11 @@ In bulk RNA-seq analysis, normalization and batch effect removal are two necessa
 
 To guide eBook authors having a better sense of the workflow layout, here we briefly introduce the specific purposes of the dir system. 
 
-1. __cache__: Here, it stores the intermediate results. 
-2. __graphs__: The graphs/figures produced during the analysis.
-3. __input__: Here, we provide the example input dataset. 
-4. __lib__: The source code, functions, or algorithms used within the workflow.
-5. __output__: The final output results of the workflow.
-6. __workflow__: Step by step pipeline for normalization and batch effect removal.
+1. __graphs__: The graphs/figures produced during the analysis.
+2. __input__: Here, we provide the example input dataset. 
+3. __lib__: The source code, functions, or algorithms used within the workflow.
+4. __output__: The final output results and figures of the workflow.
+5. __workflow__: Step by step pipeline for normalization and batch effect removal.
 
 ## Overview of an example workflow: Normalization and batch effect removal 
 
@@ -116,7 +115,7 @@ In order to compare the results from different normalization methods and bach ef
 **Violin & Box plot of normalized expression**
 ![Violin_Boxplot_of_Normalized_Expression](output/figures/Violin_Boxplot_of_Normalized_Expression.png)
 
-The $$log_2(CPM)$$ based on library size normalization methods (i.e. RLE, TMM and UQ) are similar with each other and no significant difference with the raw $log_2 (CPM)$. However, the outcomes of RPKM and TPM are significant smaller than the other methods. Here we need to note RPKM is within sample normalization but RLE, TMM, UQ and TPM are cross sample normalization methods.  
+The log2(CPM) based on library size normalization methods (i.e. RLE, TMM and UQ) are similar with each other and no significant difference with the raw log2(CPM). However, the outcomes of RPKM and TPM are significant smaller than the other methods. Here we need to note RPKM is within sample normalization but RLE, TMM, UQ and TPM are cross sample normalization methods.  
 **Note** the input raw library size of samples directly decide the outcomes of different normalization methods. The results based on example dataset cannot represent all cases so readers should select the appropriate normalization method based on the outcomes from their own input datasets.
 
 **PC1 and PC2 plot based on different batch removal methods comparing with TMM normalized CPM and raw CPM**
