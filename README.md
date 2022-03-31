@@ -87,7 +87,7 @@ Step 2 performs 9 normalization methods on the same dataset. Normalization steps
 ```
 source("workflow/Step_3_Batch_Effect_Removal.R")
 ```
-In step 3, the non-parametric empirical Bayes frameworks method.
+In step 3, the non-parametric empirical Bayes frameworks method:
 
 ```
 combat_data_non_par <- ComBat(dat= TMM, batch=batch, mod=NULL, par.prior=FALSE, mean.only=TRUE)
@@ -107,7 +107,7 @@ source("workflow/Plot_Normalization_Violin_Plot.R")
 
 source("workflow/Plot_PCA_Clustering_Distribution_After_Batch_Effect_Removal.R")
 ```
-In order to compare the results from different normalization methods and bach effect removal methods, we draw the violin & box plot of normalized expression tp compare the distribution of gene expression after different normalizations. For the batch effect removal, we use PCA plot to check the results after different batch effect removal methods. Output figures are stored in `./output/figures/Violin_Boxplot_of_Normalized_Expression.png` and `./output/figures/PCA_Plot_of_Batch_Effect_Removed_Results.png`
+In order to compare the results from different normalization methods and bach effect removal methods, we draw the violin & box plot of normalized expression tp compare the distribution of gene expression after different normalizations. For the batch effect removal, we use PCA plot to check the results after different batch effect removal methods. Output figures are stored in `output/figures/Violin_Boxplot_of_Normalized_Expression.png` and `output/figures/PCA_Plot_of_Batch_Effect_Removed_Results.png`
 
 ## Expected results
 **Violin & Box plot of normalized expression**
