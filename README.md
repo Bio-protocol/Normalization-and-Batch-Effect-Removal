@@ -5,7 +5,7 @@ In bulk RNA-seq analysis, normalization and batch effect removal are two necessa
 **If users are interested in differential expression analysis, most of the DEG pipelines are requiring raw RNA counts matrix as input. This Chapter is more suitable for the users intended to developing their own pipeline or models which need to normalize the data and remove batch effects from raw counts**
 
 **Folders:**
-1. __input__: Here, we provide the example input dataset. 
+1. __input__: Example input dataset. 
 2. __lib__: The source code, functions, or algorithms used within the workflow.
 3. __output__: The final output results and figures of the workflow.
 4. __workflow__: Step by step pipeline for normalization and batch effect removal.
@@ -107,7 +107,7 @@ source("workflow/Plot_Normalization_Violin_Plot.R")
 
 source("workflow/Plot_PCA_Clustering_Distribution_After_Batch_Effect_Removal.R")
 ```
-In order to compare the results from different normalization methods and bach effect removal methods, we draw the violin & box plot of normalized expression tp compare the distribution of gene expression after different normalizations. For the batch effect removal, we use PCA plot to check the results after different batch effect removal methods. 
+In order to compare the results from different normalization methods and bach effect removal methods, we draw the violin & box plot of normalized expression tp compare the distribution of gene expression after different normalizations. For the batch effect removal, we use PCA plot to check the results after different batch effect removal methods. Output figures are stored in `./output/figures/Violin_Boxplot_of_Normalized_Expression.png` and `./output/figures/PCA_Plot_of_Batch_Effect_Removed_Results.png`
 
 ## Expected results
 **Violin & Box plot of normalized expression**
