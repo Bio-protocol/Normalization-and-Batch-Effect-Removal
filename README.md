@@ -4,11 +4,11 @@ In bulk RNA-seq analysis, normalization and batch effect removal are two necessa
 
 **If users are interested in differential expression analysis, most of the DEG pipelines are requiring raw RNA counts matrix as input. This Chapter is more suitable for the users intended to developing their own pipeline or models which need to normalize the data and remove batch effects from raw counts**
 
-1. __graphs__: The graphs/figures produced during the analysis.
-2. __input__: Here, we provide the example input dataset. 
-3. __lib__: The source code, functions, or algorithms used within the workflow.
-4. __output__: The final output results and figures of the workflow.
-5. __workflow__: Step by step pipeline for normalization and batch effect removal.
+**Folders:**
+1. __input__: Here, we provide the example input dataset. 
+2. __lib__: The source code, functions, or algorithms used within the workflow.
+3. __output__: The final output results and figures of the workflow.
+4. __workflow__: Step by step pipeline for normalization and batch effect removal.
 
 ## Overview of an example workflow: Normalization and batch effect removal 
 
@@ -80,7 +80,7 @@ Step 1 sets up the necessary packages and datasets. After running step 1 the R e
 source("workflow/Step_2_Different_Normalization_Methods.R")
 ```
 
-Step 2 performs 9 normalization methods on the same dataset. Normalization steps can be finished in a short time (about 3.419 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). After finishing step 2, users can get the normalized count datasets. The outputs data is stored in `cache/Normalization_Result.rds`.
+Step 2 performs 9 normalization methods on the same dataset. Normalization steps can be finished in a short time (about 3.419 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). After finishing step 2, users can get the normalized count datasets. The outputs data is stored in `output/datasets/rds_format/Normalization_Result.rds`.
 
 
 #### Step 3: Remove batch effect based on normalized data
@@ -99,7 +99,7 @@ combat_data_non_par <- ComBat(dat= TMM[1:1000, ], batch=batch, mod=NULL, par.pri
 ```
 Except the non-parametric empirical Bayes frameworks method, other methods of batch removal can be finished quickly (37.844 seconds on testing datasets on [UCR HPCC](https://hpcc.ucr.edu/about/hardware/overview/)). Step 3 can remove the batch effect based on the normalized datasets. Empirical Bayes frameworks and ComBat_seq methods require batch information as the input. However, when the batch information is unknown, we need to use the `sva` function to get the  vector of covariates to be adjusted for the put into the limma function `removeBatchEffect` to remove the batch effect. 
 
-**The normalized and batch effect removed results are store in `output/Batch_Effect_Removal_Result.rds`**
+**The normalized and batch effect removed results are store in `output/datasets/rds_format/Batch_Effect_Removal_Result.rds`**
 
 #### Step 4: Results visualization
 ```
